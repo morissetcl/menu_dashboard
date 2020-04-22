@@ -7,13 +7,14 @@ namespace :rabbitmq do
     conn.start
 
     ch = conn.create_channel
+    x  = ch.headers("headers")
 
-    # get the exchange created by the producter, namely crawler.
-    x = ch.fanout("crawler.restaurants")
-    # get the queue where we want to push the message from the producer
-    queue = ch.queue("menu_dashboard.restaurants", durable: true)
+    queue_restaurants = ch.queue("menu_dashboard.restaurants", durable: true)
+    queue_dishes = ch.queue("menu_dashboard.dishes", durable: true)
+
     # bind queue to exchange
-    queue.bind("crawler.restaurants")
+    queue_restaurants.bind("crawler.restaurants")
+    queue_dishes.bind("crawler.dishes")
 
     conn.close
   end

@@ -8,6 +8,14 @@
   </thead>
 
   <tbody>
+    <% dishes.each do |dish| %>
+      <tr>
+        <td><b><%= dish[:title] %></b></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+  <tbody>
     <% restaurants.each do |restaurant| %>
       <tr>
         <td><b><%= restaurant[:name] %></b></td>

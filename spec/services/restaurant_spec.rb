@@ -1,3 +1,4 @@
+require_relative '../../apps/web/services/restaurant'
 
 describe Restaurant do
   before do
@@ -5,7 +6,7 @@ describe Restaurant do
     described_class.push(payload)
   end
 
-  it 'setup task can be called' do
+  it 'consume payload' do
     expect(described_class.list(1)).to eq [{:name=>"Top Pizza 2"}]
   end
 end
