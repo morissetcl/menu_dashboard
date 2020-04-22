@@ -1,0 +1,20 @@
+<h2>Overview</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% restaurants.each do |restaurant| %>
+      <tr>
+        <td><b><%= restaurant[:name] %></b></td>
+      </tr>
+      <tr>
+        <td><%= restaurant[:city] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

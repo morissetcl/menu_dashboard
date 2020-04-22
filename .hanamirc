@@ -1,0 +1,3 @@
+project=menu_dashboard
+test=rspec
+template=erb
