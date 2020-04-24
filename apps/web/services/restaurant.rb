@@ -8,9 +8,7 @@ class Restaurant
   # we need to parse each list item as JSON
   def self.list(limit = STORE_LIMIT)
     $redis.lrange(KEY, 0, limit).map do |raw_restaurant|
-      p raw_restaurant
-      p '$$$$$$$$$'*300
-      JSON.parse(raw_restaurant).transform_keys(&:to_sym)
+      JSON.parse(raw_restaurant)
     end
   end
 

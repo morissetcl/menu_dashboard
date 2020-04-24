@@ -1,28 +1,11 @@
 <h2>Overview</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-    </tr>
-  </thead>
+<h2>Dish</h2>
+<% dishes.each do |dish| %>
+  <li><%= dish['title'] %></li>
+<% end %>
 
-  <tbody>
-    <% dishes.each do |dish| %>
-      <tr>
-        <td><b><%= dish[:title] %></b></td>
-      </tr>
-    <% end %>
-  </tbody>
-
-  <tbody>
-    <% restaurants.each do |restaurant| %>
-      <tr>
-        <td><b><%= restaurant[:name] %></b></td>
-      </tr>
-      <tr>
-        <td><%= restaurant[:city] %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h2>Restaurant</h2>
+<% restaurants.each do |restaurant| %>
+  <li><%= restaurant['name'] %></li>
+<% end %>

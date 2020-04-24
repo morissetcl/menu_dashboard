@@ -9,7 +9,7 @@ class Dish
   # we need to parse each list item as JSON
   def self.list(limit = STORE_LIMIT)
     $redis.lrange(KEY, 0, limit).map do |raw_dish|
-      JSON.parse(raw_dish).transform_keys(&:to_sym)
+      JSON.parse(raw_dish)
     end
   end
 
