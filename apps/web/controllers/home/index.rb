@@ -5,10 +5,11 @@ module Web
     module Home
       class Index
         include Web::Action
-        expose :restaurants
+        expose :restaurants, :dishes
 
         def call(params)
           @restaurants = Restaurant.list
+          @dishes = Dish.list
         end
       end
     end
