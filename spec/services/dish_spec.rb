@@ -7,6 +7,6 @@ describe Dish do
   end
 
   it 'consume payload' do
-    expect(described_class.list(1)).to eq [{:title=>"Fish & Chips"}]
+    expect(described_class.list(1)).to eq [{"title"=>"Fish & Chips"}]
   end
 end

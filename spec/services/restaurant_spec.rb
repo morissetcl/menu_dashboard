@@ -7,6 +7,6 @@ describe Restaurant do
   end
 
   it 'consume payload' do
-    expect(described_class.list(1)).to eq [{:name=>"Top Pizza 2"}]
+    expect(described_class.list(1)).to eq [{"name"=>"Top Pizza 2"}]
   end
 end

@@ -3,9 +3,11 @@
 <h2>Dish</h2>
 <% dishes.each do |dish| %>
   <li><%= dish['title'] %></li>
+  <li><%= dish['created_at'] %></li>
 <% end %>
 
 <h2>Restaurant</h2>
 <% restaurants.each do |restaurant| %>
   <li><%= restaurant['name'] %></li>
+  <li><%= restaurant['created_at'] %></li>
 <% end %>
