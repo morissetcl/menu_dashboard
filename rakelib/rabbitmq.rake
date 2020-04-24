@@ -3,7 +3,9 @@ namespace :rabbitmq do
   task :setup do
     require "bunny"
 
-    conn = Bunny.new
+    RABBIMQ_URL = ENV.fetch('RABBITMQ_URL', 'amqp://localhost:5672')
+
+    conn = Bunny.new(RABBIMQ_URL)
     conn.start
 
     ch = conn.create_channel

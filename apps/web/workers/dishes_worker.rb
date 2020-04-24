@@ -9,8 +9,6 @@ class DishesWorker
 
   # work method receives message payload in raw format
   def work(raw_dish)
-    p raw_dish
-  p '$'*300
     Dish.push(raw_dish)
     ack! # we need to let queue know that message was received
   end
