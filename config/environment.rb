@@ -15,7 +15,7 @@ Hanami.configure do
     #
     #  * SQL adapter
     #    adapter :sql, 'sqlite://db/menu_dashboard_development.sqlite3'
-    #    adapter :sql, 'postgresql://localhost/menu_dashboard_development'
+       # adapter :sql, 'postgresql://localhost/menu_dashboard_development'
     #    adapter :sql, 'mysql://localhost/menu_dashboard_development'
     #
     adapter :sql, ENV.fetch('DATABASE_URL')
