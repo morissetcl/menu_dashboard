@@ -1,3 +1,9 @@
+<h3>Statistics</h3>
+<% accounting.each do |a| %>
+  <%= "Dishes : #{a['dish_count']}" %>
+  <%= "Restaurants : #{a['restaurant_count']}" %>
+<% end %>
+
 <h3>Last dishes</h3>
 <% dishes.each do |dish| %>
   <li><%= dish['title'] %></li>
