@@ -12,6 +12,6 @@ RSpec.describe 'Visit home' do
     expect(page).to have_content("Top Pizza 2")
     expect(page).to have_content("Fish & Chips")
     expect(page).to have_content('Overview')
-    expect(page).to have_content('24/03/2019')
+    expect(page).to have_content('2019-03-24')
   end
 end

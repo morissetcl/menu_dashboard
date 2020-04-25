@@ -1,4 +1,5 @@
-# app/services/recent_posts.rb
+require 'hanami/logger'
+
 class Restaurant
   KEY = "restaurant"
   STORE_LIMIT = 15
@@ -17,6 +18,8 @@ class Restaurant
   # `raw_post` is already a JSON string
   # so there is no need to encode it as JSON
   def self.push(raw_restaurant)
+    Hanami::Logger.new.info(raw_restaurant)
+
     $redis.lpush(KEY, raw_restaurant)
     $redis.ltrim(KEY, 0, STORE_LIMIT-1)
   end
