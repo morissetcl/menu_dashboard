@@ -258,7 +258,6 @@ module Web
       view.prepare do
         include Hanami::Helpers
         include Web::Assets::Helpers
-        include Web::Helpers::Date
       end
     end
 
