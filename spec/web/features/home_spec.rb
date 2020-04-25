@@ -3,15 +3,16 @@ require 'features_helper'
 
 RSpec.describe 'Visit home' do
   before do
-    Restaurant.push({:name=>"Top Pizza 2", :created_at => "2020-04-24T20:03:55.325Z"}.to_json)
-    Dish.push({:title=>"Fish & Chips", :created_at => "2019-03-24T20:03:55.325Z"}.to_json)
+    Restaurant.push({:name=>"Top Pizza 2"}.to_json)
+    Dish.push({:title=>"Fish & Chips"}.to_json)
+    Accounting.push({:dish_count=>"23", :restaurant_count => "98"}.to_json)
   end
 
   it 'is successful' do
     visit '/'
     expect(page).to have_content("Top Pizza 2")
     expect(page).to have_content("Fish & Chips")
-    expect(page).to have_content('Overview')
-    expect(page).to have_content('2019-03-24')
+    expect(page).to have_content('Dishes : 23')
+    expect(page).to have_content('Restaurants : 98')
   end
 end
