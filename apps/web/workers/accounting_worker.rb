@@ -1,4 +1,5 @@
 require_relative '../services/accounting'
+require 'pstore'
 
 class AccountingWorker
   include Sneakers::Worker
@@ -9,6 +10,14 @@ class AccountingWorker
 
   # work method receives message payload in raw format
   def work(raw_accounting)
+    store = PStore.new("accounting.pstore")
+    store.transaction do
+      datas = JSON.parse(raw_accounting)
+      store[:dish_count] = datas["dish_count"]
+      store[:restaurant_count] = datas["restaurant_count"]
+      store.commit
+    end
+
     Accounting.push(raw_accounting)
     ack! # we need to let queue know that message was received
   end

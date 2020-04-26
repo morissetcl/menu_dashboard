@@ -5,7 +5,12 @@ RSpec.describe 'Visit home' do
   before do
     Restaurant.push({:name=>"Top Pizza 2"}.to_json)
     Dish.push({:title=>"Fish & Chips"}.to_json)
-    Accounting.push({:dish_count=>"23", :restaurant_count => "98"}.to_json)
+    store = PStore.new("accounting.pstore")
+    store.transaction do
+      store[:dish_count] = 23
+      store[:restaurant_count] = 98
+      store.commit
+    end
   end
 
   it 'is successful' do
