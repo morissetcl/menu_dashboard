@@ -1,4 +1,9 @@
 <h3>Statistics</h3>
+<% accounting.each do |a| %>
+  <%= "Dish : #{a['dish_count']}" %>
+  <%= "Restaurant : #{a['restaurant_count']}" %>
+<% end %>
+
 <%= "Dishes : #{dish_count}" %>
 <%= "Restaurants : #{restaurant_count}" %>
 

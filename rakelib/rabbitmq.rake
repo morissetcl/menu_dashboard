@@ -2,11 +2,8 @@ namespace :rabbitmq do
   desc "Setup routing"
   task :setup do
     require "bunny"
-    
-    conn = Bunny.new(username: RABBITMQ_USERNAME,
-                     password: RABBITMQ_PASSWORD,
-                     vhost: RABBITMQ_VHOST)
-                .tap(&:start)
+
+    conn = Bunny.new.tap(&:start)
 
     ch = conn.create_channel
     x  = ch.headers("headers")

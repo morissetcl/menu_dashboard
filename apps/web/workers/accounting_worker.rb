@@ -10,11 +10,11 @@ class AccountingWorker
 
   # work method receives message payload in raw format
   def work(raw_accounting)
-    store = PStore.new("accounting.pstore")
-    store.transaction do
-      datas = JSON.parse(raw_accounting)
-      store[:dish_count] = datas["dish_count"]
-      store[:restaurant_count] = datas["restaurant_count"]
+    store = PStore.new("lib/accounting.pstore")
+    store.transaction do  # begin transaction
+      # datas = JSON.parse(raw_accounting)
+      store[:dish_count] = raw_accounting
+      # store[:restaurant_count] = datas["restaurant_count"]
       store.commit
     end
 
