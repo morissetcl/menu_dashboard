@@ -2,11 +2,11 @@ namespace :rabbitmq do
   desc "Setup routing"
   task :setup do
     require "bunny"
-
-    RABBIMQ_URL = ENV.fetch('RABBITMQ_URL', 'amqp://localhost:5672')
-
-    conn = Bunny.new(RABBIMQ_URL)
-    conn.start
+    
+    conn = Bunny.new(username: RABBITMQ_USERNAME,
+                     password: RABBITMQ_PASSWORD,
+                     vhost: RABBITMQ_VHOST)
+                .tap(&:start)
 
     ch = conn.create_channel
     x  = ch.headers("headers")
