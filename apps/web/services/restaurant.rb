@@ -2,7 +2,7 @@ require 'hanami/logger'
 
 class Restaurant
   KEY = "restaurant"
-  STORE_LIMIT = 15
+  STORE_LIMIT = 10
 
   # Get list of recent posts from redis
   # Since redis stores data in binary text format

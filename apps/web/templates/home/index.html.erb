@@ -1,20 +1,59 @@
-<h3>Statistics</h3>
-<% accounting.each do |a| %>
-  <%= "Dishes : #{a['dish_count']}" %>
-  <%= "Restaurants : #{a['restaurant_count']}" %>
-<% end %>
+<div class="limiter">
+  <h3>Statistics</h3>
+  <% accounting.each do |a| %>
+    <%= "Dishes : #{a['dish_count']}" %>
+    <%= "Restaurants : #{a['restaurant_count']}" %>
+  <% end %>
 
-<h3>Last dishes</h3>
-<% dishes.each do |dish| %>
-  <li><%= dish['title'] %></li>
-  <li><%= dish['price'] %></li>
-<% end %>
+  <div class="container-table100">
+    <div class="wrap-table100">
+      <div class="table100">
+        <table>
+          <thead>
+            <tr class="table100-head">
+              <th class="column1">Name</th>
+              <th class="column3">Street</th>
+              <th class="column2">City</th>
+              <th class="column3">Zip Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% restaurants.each do |restaurant| %>
+            <tr>
+              <td class="column1"><%= restaurant['name'] %></td>
+              <td class="column3"><%= restaurant['street'] %></td>
+              <td class="column2"><%= restaurant['city'].upcase %></td>
+              <td class="column3"><%= restaurant['zip_code'] %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
-<h3>Last restaurants</h3>
-<% restaurants.each do |restaurant| %>
-  <ul>
-    <li><b><%= restaurant['name'] %></b></li>
-    <li><%= restaurant['city'] %></li>
-    <li><%= restaurant['zip_code'] %></li>
-  </ul>
-<% end %>
+  <div class="container-table100 dishes">
+    <div class="wrap-table100">
+      <div class="table100">
+        <table>
+          <thead>
+            <tr class="table100-head">
+              <th class="column1">Name</th>
+              <th class="column3">Price</th>
+              <th class="column3">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% dishes.each do |dish| %>
+            <tr>
+              <td class="column1"><%= dish['title'] %></td>
+              <td class="column3"><%= dish['price'] %></td>
+              <td class="column3"><%= dish['description'] %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
