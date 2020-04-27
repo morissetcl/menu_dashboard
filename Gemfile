@@ -9,6 +9,8 @@ gem 'redis-rails'
 gem 'redis-namespace'
 gem 'sneakers'
 
+gem 'hanami-assets'
+
 group :development do
   # Code reloading
   # See: https://guides.hanamirb.org/projects/code-reloading
